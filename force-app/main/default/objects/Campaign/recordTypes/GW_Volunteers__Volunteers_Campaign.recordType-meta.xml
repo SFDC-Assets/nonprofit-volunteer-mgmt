@@ -382,14 +382,6 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
-            <fullName>Advertisement</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Banner Ads</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Conference</fullName>
             <default>false</default>
         </values>
