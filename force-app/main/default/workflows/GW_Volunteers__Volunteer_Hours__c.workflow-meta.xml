@@ -37,7 +37,8 @@
         <description>Nonprofit - Volunteer Job Signup Notification Email Alert</description>
         <protected>false</protected>
         <recipients>
-            <recipient>test-2ryatp2bml8z@example.com</recipient>
+            <!-- <recipient>test-2ryatp2bml8z@example.com</recipient> -->
+            <recipient>rcox@weecycle.org.dev6</recipient>
             <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
