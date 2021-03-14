@@ -8,7 +8,7 @@
             </value>
         </processMetadataValues>
         <name>myRule_1_A1</name>
-        <label>Email (WeeCycle only)</label>
+        <label>Email (Internal)</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
         <actionName>GW_Volunteers__Volunteer_Hours__c.Nonprofit_Volunteer_Job_Signup_Notification_Email_Alert</actionName>
@@ -27,14 +27,14 @@
         <processMetadataValues>
             <name>emailAlertSelection</name>
             <value>
-                <stringValue>Nonprofit_Volunteer_Job_Signup_Notification_Email_Alert</stringValue>
+                <stringValue>Nonprofit_Volunteer_Job_Signup_Thank_You_Email_Alert</stringValue>
             </value>
         </processMetadataValues>
         <name>myRule_1_A2</name>
         <label>Email (Volunteer)</label>
         <locationX>100</locationX>
         <locationY>300</locationY>
-        <actionName>GW_Volunteers__Volunteer_Hours__c.Nonprofit_Volunteer_Job_Signup_Notification_Email_Alert</actionName>
+        <actionName>GW_Volunteers__Volunteer_Hours__c.Nonprofit_Volunteer_Job_Signup_Thank_You_Email_Alert</actionName>
         <actionType>emailAlert</actionType>
         <inputParameters>
             <name>SObjectRowId</name>

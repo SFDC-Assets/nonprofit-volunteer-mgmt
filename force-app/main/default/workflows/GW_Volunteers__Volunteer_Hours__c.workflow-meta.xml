@@ -5,8 +5,7 @@
         <description>Nonprofit - Volunteer Job Signup Notification Email Alert</description>
         <protected>false</protected>
         <recipients>
-            <!-- <recipient>test-2ryatp2bml8z@example.com</recipient> -->
-            <recipient>rcox@nonprofit-03142021.org</recipient>
+            <recipient>test-sugu0p9aqi6q@example.com</recipient>
             <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -34,4 +33,5 @@
         <senderType>CurrentUser</senderType>
         <template>GW_Volunteers__Volunteers_Email_Templates/Nonprofit_Volunteer_Hours_Reminder_Email</template>
     </alerts>
+
 </Workflow>

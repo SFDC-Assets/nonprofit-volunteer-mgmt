@@ -1,48 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <processMetadataValues>
-            <name>emailAlertSelection</name>
-            <value>
-                <stringValue>Nonprofit_Volunteer_Job_Signup_Thank_You_Email_Alert</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A2</name>
-        <label>Signup Thank You Email</label>
-        <locationX>100</locationX>
-        <locationY>300</locationY>
-        <actionName>GW_Volunteers__Volunteer_Hours__c.Nonprofit_Volunteer_Job_Signup_Thank_You_Email_Alert</actionName>
-        <actionType>emailAlert</actionType>
-        <connector>
-            <targetReference>myRule_1_A3</targetReference>
-        </connector>
-        <inputParameters>
-            <name>SObjectRowId</name>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
-    <actionCalls>
-        <processMetadataValues>
-            <name>emailAlertSelection</name>
-            <value>
-                <stringValue>Nonprofit_Volunteer_Job_Signup_Notification_Email_Alert</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A3</name>
-        <label>Signup Notification Email</label>
-        <locationX>100</locationX>
-        <locationY>400</locationY>
-        <actionName>GW_Volunteers__Volunteer_Hours__c.Nonprofit_Volunteer_Job_Signup_Notification_Email_Alert</actionName>
-        <actionType>emailAlert</actionType>
-        <inputParameters>
-            <name>SObjectRowId</name>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <apiVersion>51.0</apiVersion>
     <decisions>
         <processMetadataValues>
@@ -97,7 +54,7 @@
         </rules>
     </decisions>
     <description>When a volunteer signs up for a shift on the web site, set status to Confirmed and send thank you email.</description>
-    <interviewLabel>Volunteer_Shift_Web_Sign_Up-3_InterviewLabel</interviewLabel>
+    <interviewLabel>Volunteer_Shift_Web_Sign_Up-2_InterviewLabel</interviewLabel>
     <label>Volunteer Shift Web Sign Up</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -159,9 +116,6 @@
         <label>Set Confirmed</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <connector>
-            <targetReference>myRule_1_A2</targetReference>
-        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>

@@ -21,11 +21,8 @@ End Time: &nbsp;{!GW_Volunteers__Volunteer_Hours__c.Shift_End_Date_Time__c}<br>
 <br>
 <b>Location</b><br>
 
-<a href="{!GW_Volunteers__Volunteer_Job__c.Map_URL__c}"> {!GW_Volunteers__Volunteer_Job__c.Location_Name__c}<br/>
-{!GW_Volunteers__Volunteer_Job__c.GW_Volunteers__Location_Street__c}&nbsp;
-{!GW_Volunteers__Volunteer_Job__c.GW_Volunteers__Location_City__c}, {!GW_Volunteers__Volunteer_Job__c.GW_Volunteers__Location__c}&nbsp;{!GW_Volunteers__Volunteer_Job__c.GW_Volunteers__Location_Zip_Postal_Code__c}</a>
-
-{!GW_Volunteers__Volunteer_Job__c.GW_Volunteers__Location_Information__c}
+<a href="{!GW_Volunteers__Volunteer_Job__c.Map_URL__c}"> {!GW_Volunteers__Volunteer_Job__c.Location_Name__c}<br/></a>
+<br>
 
 Thanks from all of us at {!Organization.Name}!
 
