@@ -1,13 +1,21 @@
 ({
 
-   // FAMILY TABLE OPERATIONS
+    controllerFile: function() {
+        return "VolunteerEvent_FamilyController";
+    },
+    
+    helperFile: function() {
+        return "VolunteerEvent_FamilyHelper";
+    },
+    
+   	// FAMILY TABLE OPERATIONS
 
     setFamilyTableData: function(component) {
 
         var family = component.get("v.family");
         if (family == null) { family = []; }
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyTableData - family: ' + family.length);
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyTableData - family: ' + JSON.stringify(family));
+        //console.log(this.helperFile() + ' > setFamilyTableData - family: ' + family.length);
+        //console.log(this.helperFile() + ' > setFamilyTableData - family: ' + JSON.stringify(family));
 
         // family data
         var data = Array();
@@ -20,7 +28,7 @@
             dataItem.Relationship = item.Description;
             data.push(dataItem);
         }
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyTableData - data: ' + JSON.stringify(data));
+        //console.log(this.helperFile() + ' > setFamilyTableData - data: ' + JSON.stringify(data));
 
         // set table data
         component.set('v.tableData', data);
@@ -83,13 +91,13 @@
 
 
     setFamilyMemberFields: function(component, row) {
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyMemberFields - row: ' + JSON.stringify(row));
+        //console.log(this.helperFile() + ' > setFamilyMemberFields - row: ' + JSON.stringify(row));
 
         // get familyMember
         var familyMember;
         var familyMemberIndex;
         var family = component.get("v.family");
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyMemberFields - family: ' + JSON.stringify(family));
+        //console.log(this.helperFile() + ' > setFamilyMemberFields - family: ' + JSON.stringify(family));
 
         for (var i = 0; i < family.length; ++i) {
             var item = family[i];
@@ -98,7 +106,7 @@
                 familyMemberIndex = i;
             }
         }
-        //console.log('VolunteerEvent_FamilyHelper > setFamilyMemberFields - familyMember: ' + JSON.stringify(familyMember));
+        //console.log(this.helperFile() + ' > setFamilyMemberFields - familyMember: ' + JSON.stringify(familyMember));
 
         // set familyMember attribute
         component.set("v.familyMember", familyMember);
@@ -108,7 +116,7 @@
 
     validateFields: function (component) {
 
-        //console.log('VolunteerEvent_FamilyHelper > validateFields');
+        //console.log(this.helperFile() + ' > validateFields');
 
         // checks all fields
         var allGood = component.find('field').reduce(function (validSoFar, inputCmp) {

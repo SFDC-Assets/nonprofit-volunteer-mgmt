@@ -13,7 +13,7 @@
             contactID = signup.GW_Volunteers__Contact__c;
             component.set('v.contactID', contactID);
         }
-        console.log('VolunteerEvent_SignupSubmittedController > init - shiftID: ' + shiftID + ', signup: ' + JSON.stringify(signup) + ', contactID: ' + contactID + ', contact: ' + JSON.stringify(contact));
+        console.log(helper.controllerFile() + ' > init - shiftID: ' + shiftID + ', signup: ' + JSON.stringify(signup) + ', contactID: ' + contactID + ', contact: ' + JSON.stringify(contact));
 
         helper.getJobShift(component, shiftID);
 
@@ -24,7 +24,7 @@
         // set 'navigation' attribute that the flow will use to determine flow path
         var buttonClicked = event.getSource().getLocalId();
         component.set('v.navigation', buttonClicked);
-        console.log('VolunteerEvent_SignupSubmittedController > handleNavigation - clicked: ' + buttonClicked);
+        console.log(helper.controllerFile() + ' > handleNavigation - clicked: ' + buttonClicked);
 
         if (buttonClicked == "nav_finish") {
             // go forward in the flow; this does the same thing as the "FINISH" button in the standard flow footer
@@ -42,7 +42,7 @@
     goToContactRecord : function(component, event, helper) {
 
         var contactID = component.get('v.contactID');
-        console.log('VolunteerEvent_SignupSubmittedController > goToContactRecord - contactID: ' + contactID);
+        console.log(helper.controllerFile() + ' > goToContactRecord - contactID: ' + contactID);
 
         // Fire the event to navigate to the contact record
         var nav = $A.get("e.force:navigateToSObject");

@@ -5,7 +5,7 @@
 
     init: function(component, event, helper) {
 
-        console.log('VolunteerEventSignupFlowController > init');
+        console.log(helper.controllerFile() + ' > init');
 
         var flowName = "Volunteer_Event_Signup";
 
@@ -16,7 +16,7 @@
         var eventID = component.get("v.eventID");
         var eventName = component.get("v.eventName");
         var signupChannel = component.get("v.signupChannel");
-        console.log('VolunteerEventSignupFlowController > init - eventID: ' + eventID + ', eventName: ' + eventName + ', signupChannel: ' + signupChannel);
+        console.log(helper.controllerFile() + ' > init - eventID: ' + eventID + ', eventName: ' + eventName + ', signupChannel: ' + signupChannel);
         var inputVariables = [];
         if (eventID) {
             inputVariables[0] = { name : "eventID", type : "String", value: eventID };
@@ -26,7 +26,7 @@
         if (signupChannel) {
             inputVariables[1] = { name : "signupChannel", type : "String", value: signupChannel };
         }
-        console.log('VolunteerEventSignupFlowController > init - inputVariables: ' + JSON.stringify(inputVariables));
+        console.log(helper.controllerFile() + ' > init - inputVariables: ' + JSON.stringify(inputVariables));
 
         // start the flow by the flow Unique Name
         flow.startFlow(flowName, inputVariables);

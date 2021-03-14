@@ -1,7 +1,7 @@
 ({
-
+    
     init: function(component, event, helper) {
-        console.log('VolunteerEvent_Children > init');
+        console.log(helper.controllerFile() + ' > init');
 
         // CHILDREN TABLE columns
         component.set('v.tableColumns', [
@@ -34,11 +34,11 @@
     handleRowAction: function (component, event, helper) {
         var action = event.getParam('action');
         var row = event.getParam('row');
-        console.log('VolunteerEvent_Children > row action: ' + JSON.stringify(action));
+        console.log(helper.controllerFile() + ' > row action: ' + JSON.stringify(action));
 
         switch (action.name) {
             case 'edit': {
-                console.log('VolunteerEvent_Children > edit child: ' + JSON.stringify(row));
+                console.log(helper.controllerFile() + ' > edit child: ' + JSON.stringify(row));
                 helper.setChildFields(component, row);
 
                 // open modal
@@ -48,7 +48,7 @@
                 break;
             }
             case 'delete': {
-                console.log('VolunteerEvent_Children > delete child: ' + JSON.stringify(row));
+                console.log(helper.controllerFile() + ' > delete child: ' + JSON.stringify(row));
                 helper.setChildFields(component, row);
 
                 // open modal
@@ -65,7 +65,7 @@
     // CHILD DETAIL MODAL OPERATIONS
 
     openModal_addChild: function(component, event, helper) {
-       //console.log('VolunteerEvent_Children > openModal_addChild');
+       //console.log(helper.controllerFile() + ' > openModal_addChild');
        helper.openModal_addChild(component);
     }, // end openModal_addChild
 
@@ -76,10 +76,10 @@
     saveChild: function(component, event, helper) {
         var modalAction = component.get('v.modalAction');
         var buttonClicked = event.getSource().getLocalId();
-        console.log('VolunteerEvent_Children > saveChild ( action:' + modalAction + ', buttonClicked: ' + buttonClicked + ')');
+        console.log(helper.controllerFile() + ' > saveChild ( action:' + modalAction + ', buttonClicked: ' + buttonClicked + ')');
 
         var allGood = helper.validateFields(component);
-        console.log('VolunteerEvent_Children > saveChild - allGood: ' + allGood);
+        console.log(helper.controllerFile() + ' > saveChild - allGood: ' + allGood);
 
         if (allGood) {
             // child
@@ -87,7 +87,7 @@
             var children = component.get("v.children");
 
             // store child
-            console.log('VolunteerEvent_Children > saveChild (' + modalAction + ') - child: ' + JSON.stringify(child));
+            console.log(helper.controllerFile() + ' > saveChild (' + modalAction + ') - child: ' + JSON.stringify(child));
             if (modalAction == 'create') {
 
                 // add child
@@ -102,7 +102,7 @@
 
                 var childIndex = component.get("v.childIndex");
                 var child = component.get("v.child");
-                console.log('VolunteerEvent_Children > saveChild (' + modalAction + ') - index: ' + childIndex + ': ' + JSON.stringify(child));
+                console.log(helper.controllerFile() + ' > saveChild (' + modalAction + ') - index: ' + childIndex + ': ' + JSON.stringify(child));
 
                 // update child in list
                 var children = component.get("v.children", children);
@@ -131,7 +131,7 @@
 
         var childIndex = component.get("v.childIndex");
         var child = component.get("v.child");
-        console.log('VolunteerEvent_Children > deleteChild - index: ' + childIndex + ': ' + JSON.stringify(child));
+        console.log(helper.controllerFile() + ' > deleteChild - index: ' + childIndex + ': ' + JSON.stringify(child));
 
         // delete child from list
         var children = component.get("v.children", children);

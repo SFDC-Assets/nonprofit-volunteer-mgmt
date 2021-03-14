@@ -2,9 +2,17 @@
  * Created by ryan.cox on 2019-01-16.
  */
 ({
+    controllerFile: function() {
+        return "VolunteerEvent_ViewController";
+    },
+
+    helperFile: function() {
+        return "VolunteerEvent_ViewHelper";
+    },
+    
     getCampaign: function(component, eventID, eventName) {
 
-        console.log('VolunteerEvent_ViewHelper > getCampaign - eventID: ' + eventID + ', eventName: ' + eventName);
+        console.log(this.helperFile() + ' > getCampaign - eventID: ' + eventID + ', eventName: ' + eventName);
 
         // Create the action
         var doAction = true;
@@ -24,13 +32,13 @@
 
         // Add callback behavior for when response is received
         action.setCallback(this, function(response) {
-            console.log('VolunteerEvent_ViewHelper > getCampaign response: ' + response.getState())
+            console.log(this.helperFile() + ' > getCampaign response: ' + response.getState())
             var state = response.getState();
             if (state === "SUCCESS") {
 
                	// campaignList
                 var campaignList = response.getReturnValue();
-            	console.log('VolunteerEvent_ViewHelper > getCampaign - campaignList: ' + JSON.stringify(campaignList));
+            	console.log(this.helperFile() + ' > getCampaign - campaignList: ' + JSON.stringify(campaignList));
 
                 if (campaignList.length > 0) {
                     var campaign = campaignList[0];
@@ -50,7 +58,7 @@
 
             }
             else {
-                console.log("VolunteerEvent_ViewHelper > getCampaign - failed with state: " + state);
+                console.log(this.helperFile() + ' > getCampaign - failed with state: ' + state);
             }
         });
 
@@ -64,7 +72,7 @@
     getVolunteerJobs: function(component, eventID) {
 
          // retrieve event volunteer jobs, including job shifts
-        console.log('VolunteerEvent_ViewHelper > getVolunteerJobs - eventID: ' + eventID);
+        console.log(this.helperFile() + ' > getVolunteerJobs - eventID: ' + eventID);
 
          // outcome is setting this value into the component attribute 'jobList'
          var jobList = null;
@@ -82,18 +90,18 @@
 
          // Add callback behavior for when response is received
          action.setCallback(this, function(response) {
-             console.log('VolunteerEvent_ViewHelper > getVolunteerJobs response: ' + response.getState())
+             console.log(this.helperFile() + ' > getVolunteerJobs response: ' + response.getState())
              var state = response.getState();
              if (state === "SUCCESS") {
 
                  // jobList
                  jobList = response.getReturnValue();
-             	 console.log('VolunteerEvent_ViewHelper > getVolunteerJobs jobList: ' + JSON.stringify(jobList));
+             	 console.log(this.helperFile() + ' > getVolunteerJobs jobList: ' + JSON.stringify(jobList));
                  component.set("v.jobList", jobList);
 
              }
              else {
-                 console.log("VolunteerEvent_ViewHelper > getVolunteerJobs - failed with state: " + state);
+                 console.log(this.helperFile() + ' > getVolunteerJobs - failed with state: ' + state);
              }
          });
 

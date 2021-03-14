@@ -3,9 +3,17 @@
  */
 ({
 
-   getJobShift: function(component, shiftID) {
+    controllerFile: function() {
+        return "VolunteerEvent_SignupSubmittedController";
+    },
+    
+    helperFile: function() {
+        return "VolunteerEvent_SignupSubmittedHelper";
+    },
+    
+   	getJobShift: function(component, shiftID) {
 
-        console.log('VolunteerEvent_SignupSubmittedHelper > getJobShift - shiftID: ' + shiftID);
+        console.log(this.helperFile() + ' > getJobShift - shiftID: ' + shiftID);
 
         // outcome is setting this value into the component attribute 'shift'
         var shift = null;
@@ -23,12 +31,12 @@
 
         // Add callback behavior for when response is received
         action.setCallback(this, function(response) {
-            console.log('VolunteerEvent_SignupSubmittedHelper > getJobShift response: ' + response.getState())
+            console.log(this.helperFile() + ' > getJobShift response: ' + response.getState())
             var state = response.getState();
             if (state === "SUCCESS") {
 
                 var shiftList = response.getReturnValue();
-                console.log('VolunteerEvent_SignupSubmittedHelper > getJobShift shiftList: ' + JSON.stringify(shiftList));
+                console.log(this.helperFile() + ' > getJobShift shiftList: ' + JSON.stringify(shiftList));
                 if (shiftList.length > 0) {
                     // shift
                     var shift = shiftList[0];
@@ -47,7 +55,7 @@
                 }
              }
              else {
-                 console.log("VolunteerEvent_SignupSubmittedHelper > getJobShift - failed with state: " + state);
+                 console.log(this.helperFile() + ' > getJobShift - failed with state: ' + state);
              }
         });
 
@@ -60,9 +68,9 @@
 
     formatDateString: function(dateString) {
 
-         //console.log('VolunteerJobShiftListController > formatDateString - dateString in: ' + dateString);
+         //console.log(this.helperFile() + ' > formatDateString - dateString in: ' + dateString);
          dateString = $A.localizationService.formatDate(dateString, "EEE MMM d, yyyy hh:mm a");
-         //console.log('VolunteerJobShiftListController > formatDateString - date out: ' + dateString);
+         //console.log(this.helperFile() + ' > formatDateString - date out: ' + dateString);
          return dateString;
 
     }, // end formatDateString

@@ -1,7 +1,7 @@
 ({
 
     init: function(component, event, helper) {
-        console.log('VolunteerEvent_Family > init');
+        console.log(helper.controllerFile() + ' > init');
 
         // FAMILY TABLE columns
         component.set('v.tableColumns', [
@@ -35,11 +35,11 @@
     handleRowAction: function (component, event, helper) {
         var action = event.getParam('action');
         var row = event.getParam('row');
-        console.log('VolunteerEvent_Family > row action: ' + JSON.stringify(action));
+        console.log(helper.controllerFile() + ' > row action: ' + JSON.stringify(action));
 
         switch (action.name) {
             case 'edit': {
-                console.log('VolunteerEvent_Family > edit familyMember: ' + JSON.stringify(row));
+                console.log(helper.controllerFile() + ' > edit familyMember: ' + JSON.stringify(row));
                 helper.setFamilyMemberFields(component, row);
 
                 // open modal
@@ -49,7 +49,7 @@
                 break;
             }
             case 'delete': {
-                console.log('VolunteerEvent_Family > delete familyMember: ' + JSON.stringify(row));
+                console.log(helper.controllerFile() + ' > delete familyMember: ' + JSON.stringify(row));
                 helper.setFamilyMemberFields(component, row);
 
                 // open modal
@@ -66,7 +66,7 @@
     // CHILD DETAIL MODAL OPERATIONS
 
     openModal_addFamilyMember: function(component, event, helper) {
-       //console.log('VolunteerEvent_Family > openModal_addFamilyMember');
+       //console.log(helper.controllerFile() + ' > openModal_addFamilyMember');
        helper.openModal_addFamilyMember(component);
     }, // end openModal_addFamilyMember
 
@@ -77,10 +77,10 @@
     saveFamilyMember: function(component, event, helper) {
         var modalAction = component.get('v.modalAction');
         var buttonClicked = event.getSource().getLocalId();
-        console.log('VolunteerEvent_Family > saveFamilyMember ( action:' + modalAction + ', buttonClicked: ' + buttonClicked + ')');
+        console.log(helper.controllerFile() + ' > saveFamilyMember ( action:' + modalAction + ', buttonClicked: ' + buttonClicked + ')');
 
         var allGood = helper.validateFields(component);
-        console.log('VolunteerEvent_Family > saveFamilyMember - allGood: ' + allGood);
+        console.log(helper.controllerFile() + ' > saveFamilyMember - allGood: ' + allGood);
 
         if (allGood) {
             // familyMember
@@ -88,7 +88,7 @@
             var family = component.get("v.family");
 
             // store familyMember
-            console.log('VolunteerEvent_Family > saveFamilyMember (' + modalAction + ') - familyMember: ' + JSON.stringify(familyMember));
+            console.log(helper.controllerFile() + ' > saveFamilyMember (' + modalAction + ') - familyMember: ' + JSON.stringify(familyMember));
             if (modalAction == 'create') {
 
                 // add familyMember
@@ -103,7 +103,7 @@
 
                 var familyMemberIndex = component.get("v.familyMemberIndex");
                 var familyMember = component.get("v.familyMember");
-                console.log('VolunteerEvent_Family > saveFamilyMember (' + modalAction + ') - index: ' + familyMemberIndex + ': ' + JSON.stringify(familyMember));
+                console.log(helper.controllerFile() + ' > saveFamilyMember (' + modalAction + ') - index: ' + familyMemberIndex + ': ' + JSON.stringify(familyMember));
 
                 // update familyMember in list
                 var family = component.get("v.family", family);
@@ -132,7 +132,7 @@
 
         var familyMemberIndex = component.get("v.familyMemberIndex");
         var familyMember = component.get("v.familyMember");
-        console.log('VolunteerEvent_Family > deleteFamilyMember - index: ' + familyMemberIndex + ': ' + JSON.stringify(familyMember));
+        console.log(helper.controllerFile() + ' > deleteFamilyMember - index: ' + familyMemberIndex + ': ' + JSON.stringify(familyMember));
 
         // delete familyMember from list
         var family = component.get("v.family", family);

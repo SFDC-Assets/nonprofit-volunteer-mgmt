@@ -37,11 +37,10 @@
         <description>Nonprofit - Volunteer Job Signup Notification Email Alert</description>
         <protected>false</protected>
         <recipients>
-            <recipient>test-hil7ja8t628k@example.com</recipient>
+            <recipient>test-nxkq9squx21q@example.com</recipient>
             <type>user</type>
         </recipients>
-        <senderAddress>ryan.cox@salesforce.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>CurrentUser</senderType>
         <template>GW_Volunteers__Volunteers_Email_Templates/Nonprofit_Volunteer_Job_Signup_Notification</template>
     </alerts>
     <alerts>
@@ -52,8 +51,7 @@
             <field>GW_Volunteers__Contact__c</field>
             <type>contactLookup</type>
         </recipients>
-        <senderAddress>ryan.cox@salesforce.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>CurrentUser</senderType>
         <template>GW_Volunteers__Volunteers_Email_Templates/Nonprofit_Job_Signup_Thank_You</template>
     </alerts>
     <alerts>
@@ -64,8 +62,7 @@
             <field>GW_Volunteers__Contact__c</field>
             <type>contactLookup</type>
         </recipients>
-        <senderAddress>ryan.cox@salesforce.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>CurrentUser</senderType>
         <template>GW_Volunteers__Volunteers_Email_Templates/Nonprofit_Volunteer_Hours_Reminder_Email</template>
     </alerts>
     <fieldUpdates>

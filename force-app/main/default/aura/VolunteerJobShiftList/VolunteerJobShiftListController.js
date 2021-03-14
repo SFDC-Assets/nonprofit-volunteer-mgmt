@@ -2,7 +2,7 @@
 
     init: function(component, event, helper) {
 
-        console.log('VolunteerJobShiftListController > init');
+        console.log(helper.controllerFile() + ' >  init');
 
         var job = component.get("v.job");
 
@@ -32,7 +32,7 @@
               dataItem.NumVolunteersNeeded = item.GW_Volunteers__Number_of_Volunteers_Still_Needed__c;
               data.push(dataItem);
             }
-            //console.log('VolunteerJobShiftListController > init - table data: ' + JSON.stringify(data));
+            //console.log(helper.controllerFile() + ' >  init - table data: ' + JSON.stringify(data));
 
             // table height based on number of shifts
             var heightPerRow = 50;
@@ -62,7 +62,7 @@
 
         var action = event.getParam('action');
         var row = event.getParam('row');
-        console.log('VolunteerJobShiftListController > row action: ' + JSON.stringify(action));
+        console.log(helper.controllerFile() + ' >  row action: ' + JSON.stringify(action));
 
         switch (action.name) {
             case 'signup': {

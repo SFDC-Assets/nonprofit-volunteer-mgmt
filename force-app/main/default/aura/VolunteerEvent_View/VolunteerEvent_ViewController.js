@@ -7,7 +7,7 @@
 
         var eventID = component.get('v.eventID');
         var eventName = component.get('v.eventName');
-        console.log('VolunteerEvent_ViewController > init - eventID: ' + eventID + ', eventName: ' + eventName);
+        console.log(helper.controllerFile() + ' > init - eventID: ' + eventID + ', eventName: ' + eventName);
 
         helper.getCampaign(component, eventID, eventName);
 
@@ -16,7 +16,7 @@
     shiftSelected: function(component, event, helper) {
 
         var shiftSelectedID = event.getParam("value");
-        console.log('VolunteerEvent_ViewController > shiftSelected: ' + shiftSelectedID);
+        console.log(helper.controllerFile() + ' > shiftSelected: ' + shiftSelectedID);
 
         // set 'navigation' attribute that the flow will use to determine flow path
         component.set('v.navigation', 'nav_signup');

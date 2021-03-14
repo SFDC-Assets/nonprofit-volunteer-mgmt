@@ -1,13 +1,21 @@
 ({
 
+    controllerFile: function() {
+        return "VolunteerEvent_ChildrenController";
+    },
+    
+    helperFile: function() {
+        return "VolunteerEvent_ChildrenHelper";
+    },
+    
    // CHILDREN TABLE OPERATIONS
 
     setChildrenTableData: function(component) {
 
         var children = component.get("v.children");
         if (children == null) { children = []; }
-        //console.log('VolunteerEvent_ChildrenHelper > setChildrenTableData - children: ' + children.length);
-        //console.log('VolunteerEvent_ChildrenHelper > setChildrenTableData - children: ' + JSON.stringify(children));
+        //console.log(this.helperFile() + ' > setChildrenTableData - children: ' + children.length);
+        //console.log(this.helperFile() + ' > setChildrenTableData - children: ' + JSON.stringify(children));
 
         // children data
         var data = Array();
@@ -19,7 +27,7 @@
             dataItem.Birthdate = item.Birthdate;
             data.push(dataItem);
         }
-        //console.log('VolunteerEvent_ChildrenHelper > setChildrenTableData - data: ' + JSON.stringify(data));
+        //console.log(this.helperFile() + ' > setChildrenTableData - data: ' + JSON.stringify(data));
 
         // set table data
         component.set('v.tableData', data);
@@ -72,7 +80,7 @@
         // init child
         var child = {};
         component.set("v.child", child);
-        //console.log('VolunteerEvent_ChildrenHelper > openModal_addChild - new child: ' + JSON.stringify(child));
+        //console.log(this.helperFile() + ' > openModal_addChild - new child: ' + JSON.stringify(child));
 
         // open modal
         component.set('v.modalAction', 'create');
@@ -83,13 +91,13 @@
 
 
     setChildFields: function(component, row) {
-        //console.log('VolunteerEvent_ChildrenHelper > setChildFields - row: ' + JSON.stringify(row));
+        //console.log(this.helperFile() + ' > setChildFields - row: ' + JSON.stringify(row));
 
         // get child
         var child;
         var childIndex;
         var children = component.get("v.children");
-        //console.log('VolunteerEvent_ChildrenHelper > setChildFields - children: ' + JSON.stringify(children));
+        //console.log(this.helperFile() + ' > setChildFields - children: ' + JSON.stringify(children));
 
         for (var i = 0; i < children.length; ++i) {
             var item = children[i];
@@ -98,7 +106,7 @@
                 childIndex = i;
             }
         }
-        //console.log('VolunteerEvent_ChildrenHelper > setChildFields - child: ' + JSON.stringify(child));
+        //console.log(this.helperFile() + ' > setChildFields - child: ' + JSON.stringify(child));
 
         // set child attribute
         component.set("v.child", child);
@@ -108,7 +116,7 @@
 
     validateFields: function (component) {
 
-        //console.log('VolunteerEvent_ChildrenHelper > validateFields');
+        //console.log(this.helperFile() + ' > validateFields');
 
         // checks all fields
         var allGood = component.find('field').reduce(function (validSoFar, inputCmp) {

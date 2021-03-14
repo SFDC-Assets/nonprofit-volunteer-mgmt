@@ -1,8 +1,8 @@
 minimum_cumulusci_version: '3.29.0'
 project:
-    name: nonprofit-volunteer-mgmt
+    name: rc-nonprofit-volunteer-mgmt
     package:
-        name: nonprofit-volunteer-mgmt
+        name: rc-nonprofit-volunteer-mgmt
         api_version: '50.0'
     dependencies:
         - github: 'https://github.com/SalesforceFoundation/NPSP'
@@ -28,6 +28,7 @@ tasks:
             required_org_code_coverage_percent: 75
     
     add_standard_value_set_entries:
+        description: Adds the 'Event' picklist value to the Campaign.Type
         class_path: cumulusci.tasks.metadata_etl.AddValueSetEntries
         options:
             api_names: 
@@ -35,3 +36,27 @@ tasks:
             entries:
                 - fullName: Event
                   label: Event
+    
+    assign_perm_set:
+        description: Assign permission set 'Volunteer_Mgmt' to the admin user
+        class_path: cumulusci.tasks.sfdx.SFDXOrgTask
+        options:
+            command: "force:user:permset:assign -n Volunteer_Mgmt"
+
+flows:
+    dependencies:
+        steps:
+            3:
+                task: add_standard_value_set_entries
+    config_dev:
+        steps:
+            3:
+                task: assign_perm_set
+            4:
+                task: load_dataset
+    config_qa:
+        steps:
+            3:
+                task: assign_perm_set
+            4:
+                task: load_dataset

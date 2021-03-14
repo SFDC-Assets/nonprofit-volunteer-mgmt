@@ -1,0 +1,6 @@
+({
+	controllerFile: function() {
+        return "VolunteerEventSignupFlowController";
+    },
+
+})

@@ -2,7 +2,7 @@
 
     init: function(component, event, helper) {
 
-        console.log('VolunteerEventListController > init');
+        console.log(helper.controllerFile() + ' > init');
 
         helper.getCampaigns(component);
 

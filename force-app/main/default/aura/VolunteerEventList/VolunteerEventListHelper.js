@@ -1,26 +1,34 @@
 ({
 
+    controllerFile: function() {
+        return "VolunteerEventListController";
+    },
+
+    helperFile: function() {
+        return "VolunteerEventListHelper";
+    },
+    
     getCampaigns: function(component) {
 
-        console.log('VolunteerEventListHelper > getCampaigns');
+        console.log(this.helperFile() + ' > getCampaigns');
 
         // Create the action
         var action = component.get("c.getCampaigns"); // method on the VolunteerEventController
 
         // Add callback behavior for when response is received
         action.setCallback(this, function(response) {
-            console.log('VolunteerEventListHelper > getCampaigns response: ' + response.getState())
+            console.log(this.helperFile() + ' > getCampaigns response: ' + response.getState())
             var state = response.getState();
             if (state === "SUCCESS") {
 
                 // campaignList
                 var campaignList = response.getReturnValue();
-                console.log('VolunteerEventListHelper > getCampaigns - campaignList: ' + JSON.stringify(campaignList));
+                console.log(this.helperFile() + ' > getCampaigns - campaignList: ' + JSON.stringify(campaignList));
                 component.set("v.campaignList", campaignList);
 
             }
             else {
-                console.log("VolunteerEventListHelper > getCampaigns - failed with state: " + state);
+                console.log(this.helperFile() + ' > getCampaigns - failed with state: ' + state);
             }
         });
 

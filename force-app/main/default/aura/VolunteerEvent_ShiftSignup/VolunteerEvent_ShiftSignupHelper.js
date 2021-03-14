@@ -15,7 +15,7 @@
 
        return new Promise((resolve, reject) => {
            
-            console.log(this.helperFile + ' > getJobShift - shiftID: ' + shiftID);
+            console.log(this.helperFile() + ' > getJobShift - shiftID: ' + shiftID);
     
             // outcome is setting this value into the component attribute 'shift'
             var shift = null;
@@ -33,12 +33,12 @@
     
             // Add callback behavior for when response is received
             action.setCallback(this, function(response) {
-                console.log(this.helperFile + ' > getJobShift response: ' + response.getState())
+                console.log(this.helperFile() + ' > getJobShift response: ' + response.getState())
                 var state = response.getState();
                 if (state === "SUCCESS") {
     
                     var shiftList = response.getReturnValue();
-                    console.log(this.helperFile + ' > getJobShift shiftList: ' + JSON.stringify(shiftList));
+                    console.log(this.helperFile() + ' > getJobShift shiftList: ' + JSON.stringify(shiftList));
                     if (shiftList.length > 0) {
                         // shift
                         var shift = shiftList[0];
@@ -60,7 +60,7 @@
                     resolve();
                  }
                  else {
-                     var errorMsg = this.helperFile + ' > getJobShift - failed with state: ' + state;
+                     var errorMsg = this.helperFile() + ' > getJobShift - failed with state: ' + state;
                      console.log(errorMsg);
                      var error = new Error(errorMsg);
                      reject(error);
@@ -80,7 +80,7 @@
 
        return new Promise((resolve, reject) => {
            
-            console.log(this.helperFile + ' > getOrganizationName');
+            console.log(this.helperFile() + ' > getOrganizationName');
     
             // outcome is setting this value into the component attribute 'shift'
             var shift = null;
@@ -91,19 +91,19 @@
     
             // Add callback behavior for when response is received
             action.setCallback(this, function(response) {
-                console.log(this.helperFile + ' > getOrganizationName - response: ' + response.getState())
+                console.log(this.helperFile() + ' > getOrganizationName - response: ' + response.getState())
                 var state = response.getState();
                 if (state === "SUCCESS") {
     
                     var organizationName = response.getReturnValue();
-                    console.log(this.helperFile + ' > getOrganizationName - organizationName: ' + organizationName);
+                    console.log(this.helperFile() + ' > getOrganizationName - organizationName: ' + organizationName);
            			component.set("v.organizationName", organizationName);
            
                     // promise resolved
                     resolve();
                  }
                  else {
-                     var errorMsg = this.helperFile + ' > getOrganizationName - failed with state: ' + state;
+                     var errorMsg = this.helperFile() + ' > getOrganizationName - failed with state: ' + state;
                      console.log(errorMsg);
                      var error = new Error(errorMsg);
                      reject(error);
@@ -177,11 +177,11 @@
         var family = [];
         if (signupFamily) { family = component.get("v.family"); }
 
-        console.log(this.helperFile + ' > submitSignup - signupChannel: ' + signupChannel + ', jobID: ' + jobID + ', shift: ' + JSON.stringify(shift)
+        console.log(this.helperFile() + ' > submitSignup - signupChannel: ' + signupChannel + ', jobID: ' + jobID + ', shift: ' + JSON.stringify(shift)
             + ', contact: ' + JSON.stringify(contact) + ', deviceType: ' + deviceType + ', signupFamily: ' + signupFamily);
 
         var allGood = (jobID != null) && (shift != null) && (contact != null) && this.validateFields(component);
-        console.log(this.helperFile + ' > submitSignup - allGood: ' + allGood);
+        console.log(this.helperFile() + ' > submitSignup - allGood: ' + allGood);
 
         if (allGood) {
             // show loading spinner
@@ -195,7 +195,7 @@
 
     validateFields: function (component) {
 
-        console.log(this.helperFile + ' > validateFields');
+        console.log(this.helperFile() + ' > validateFields');
 
         // checks all fields
         var allGood = component.find('field').reduce(function (validSoFar, inputCmp) {
@@ -237,7 +237,7 @@
 
     createShiftSignup: function(component, signupChannel, jobID, shift, contact, deviceType, family) {
 
-         console.log(this.helperFile + ' > createShiftSignup - signupChannel: ' + signupChannel + ', jobID: ' + jobID + ', shift: ' + JSON.stringify(shift)
+         console.log(this.helperFile() + ' > createShiftSignup - signupChannel: ' + signupChannel + ', jobID: ' + jobID + ', shift: ' + JSON.stringify(shift)
             + ', contact: ' + JSON.stringify(contact) + ', deviceType: ' + deviceType + ', family: ' + JSON.stringify(family));
 
          // Create the action
@@ -255,12 +255,12 @@
 
              // Add callback behavior for when response is received
              action.setCallback(this, function(response) {
-                 console.log(this.helperFile + ' > createShiftSignup response: ' + response.getState())
+                 console.log(this.helperFile() + ' > createShiftSignup response: ' + response.getState())
                  var state = response.getState();
                  if (state === "SUCCESS") {
                      // signup
                      var signup = response.getReturnValue();
-                     console.log(this.helperFile + ' > createShiftSignup - signup created: ' + JSON.stringify(signup));
+                     console.log(this.helperFile() + ' > createShiftSignup - signup created: ' + JSON.stringify(signup));
                      component.set('v.signup', signup);
 
                      // set signupCreated - the component change handler is fired to navigate forward in the flow
