@@ -5,7 +5,7 @@ project:
         name: rc-nonprofit-volunteer-mgmt
         api_version: '50.0'
     dependencies:
-        - github: 'https://github.com/SalesforceFoundation/NPSP'
+        #- github: 'https://github.com/SalesforceFoundation/NPSP'
         - github: 'https://github.com/SalesforceFoundation/Volunteers-for-Salesforce'
     git:
         default_branch: 'main'
@@ -41,7 +41,7 @@ tasks:
         description: Assign permission set 'Volunteer_Mgmt' to the admin user
         class_path: cumulusci.tasks.sfdx.SFDXOrgTask
         options:
-            command: "force:user:permset:assign -n Volunteer_Mgmt"
+            command: "force:user:permset:assign -n Volunteer_Mgmt -o rcox@nonprofit-03142021.org"
 
 flows:
     dependencies:
