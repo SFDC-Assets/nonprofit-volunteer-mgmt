@@ -4,7 +4,7 @@ This is a Salesforce DX project that provides lightning components for volunteer
 
 The code in here extends the Volunteers for Salesforce package -> https://github.com/SalesforceFoundation/Volunteers-for-Salesforce
 
-See description and screen shots of these components here -> [Nonprofit Volunteer Mgmt](rc-nonprofit-volunteer-mgmt/docs/Nonprofit_Volunteer_Mgmt_March2021.pdf)
+See description and screen shots of these components here -> [Nonprofit Volunteer Mgmt](docs/Nonprofit_Volunteer_Mgmt_March2021.pdf)
 
 ## Development
 
