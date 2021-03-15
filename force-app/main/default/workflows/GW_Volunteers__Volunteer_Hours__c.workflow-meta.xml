@@ -5,7 +5,8 @@
         <description>Nonprofit - Volunteer Job Signup Notification Email Alert</description>
         <protected>false</protected>
         <recipients>
-            <recipient>test-sugu0p9aqi6q@example.com</recipient>
+            <!-- <recipient>test-sugu0p9aqi6q@example.com</recipient>-->
+            <recipient>rcox@nonprofit-03142021.org</recipient>
             <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
